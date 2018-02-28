@@ -1,0 +1,133 @@
+html {
+    background: transparent;
+}
+
+.form-page {
+    display: none;
+    position: absolute;
+    &.active {
+        position: static;
+        display: block;
+    }
+}
+
+.errorDv {
+    opacity: 0;
+    visibility: hidden;
+    &.error-popup.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+#centerContentWrap {
+    transition: opacity 0.4s;
+    border: 6px solid #20A8FA;
+    border-radius: 8px;
+    @media screen and (max-width: 550px) {
+        max-width:280px !important;
+        border: none !important;
+    }
+    &.app__loaded {
+        opacity: 1;
+        visibility: visible;
+    }
+    .donationSection {
+        border-top: none !important;
+    }
+    .app__injected-ui.top-nav-wrapper {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(150, 150, 150, 0.2);
+        h3 {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .app__ui-wrapper {
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            .app__button {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                cursor: pointer;
+                margin: 1em;
+                position: relative;
+                &:nth-child(1) {
+                    .number {
+                        &:before {
+                            display: none !important;
+                        }
+                    }
+                }
+                &.active {
+                    .number {
+                        color: white;
+                        background: #2694AF !important;
+                    }
+                    .line {
+                        background: #2694AF !important;
+                    }
+                }
+                .label {
+                    font-size: 0.8em;
+                }
+                .number {
+                    width: 30px;
+                    background: rgba(220, 220, 220, 1);
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    position: relative;
+                    z-index: 3;
+                    order: 4;
+                }
+                .line {
+                    content: "";
+                    position: absolute;
+                    display: flex;
+                    order: 3;
+                    height: 3px;
+                    background: #EAEAEA;
+                    width: 120%;
+                    display: flex;
+                    align-items: center;
+                    top: 75%;
+                    left: -100%;
+                    transform: translate(0%, -50%);
+                }
+            }
+        }
+    }
+    .app__injected-ui.bottom-nav-wrapper {
+        order: 3;
+        display: none;
+        margin-top: 10px;
+        &.active {
+            display: block;
+        }
+        .app__ui-wrapper {
+            justify-content: center;
+            display: flex;
+            .app__button {
+                background: #00a3ff;
+                font-size: 16px;
+                padding: 15px 25px;
+                margin: 10px;
+                cursor: pointer;
+                color: white;
+                width: 150px;
+                text-align: center;
+                text-transform: uppercase;
+                border-radius: 3px;
+                &.disabled {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

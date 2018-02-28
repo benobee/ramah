@@ -1,0 +1,59 @@
+{
+  "name": "sqs-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "webpack --progress --colors --watch",
+    "watch": "./node_modules/.bin/webpack -d --watch --colors",
+    "build": "set PROD_ENV=true && set process.env='production' && webpack -p&&documentation build --output ./README.md --format md",
+    "dev": "webpack-dev-server ./main.js --hot --watch --colors"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "author": "Ben Obee",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
+    "css-loader": "^0.28.9",
+    "es6-promise": "^4.2.4",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-watch": "^3.1.3",
+    "exports-loader": "^0.6.4",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "github-release-cli": "^0.3.0",
+    "html-loader": "^0.5.5",
+    "imports-loader": "^0.7.1",
+    "json-loader": "^0.5.7",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "path": "^0.12.7",
+    "postcss-loader": "^2.0.10",
+    "postcss-smart-import": "^0.7.6",
+    "style-loader": "^0.19.1",
+    "uglify-es": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

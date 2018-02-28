@@ -1,0 +1,45 @@
+.Header-nav.Header-nav--secondary {
+    .Header-nav-inner {
+        .Header-nav-item {
+            &:nth-child(4) {
+                >a {
+                    border-bottom: 6px solid @green;
+                }
+            }
+        }
+    }
+}
+
+.Header {
+    transition: background 1s;
+    .Header-branding img {
+        transition: 0.3s;
+    }
+    .Header-nav {
+        img {
+            transition: 0.3s;
+            max-width: 160px;
+        }
+    }
+    &.scrolling {
+        .Header-branding img {
+            max-width: 80px;
+        }
+        .Header-nav {
+            img {
+                max-width: 80px;
+            }
+        }
+        background:@blue;
+        padding-bottom:0.5em;
+        position:fixed;
+        .Header-nav-item {
+            color: white;
+        }
+        z-index:999;
+        width:100%;
+        top:0;
+        left:0;
+        right:0;
+    }
+}

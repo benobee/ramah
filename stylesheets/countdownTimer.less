@@ -1,0 +1,68 @@
+/* Count Down Timer on homepage*/
+
+.timer.wrapper {
+    background: @greyLight;
+    padding: 1em;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (max-width: 500px) {
+        h3 {
+            font-size:4vw !important;
+        }
+        .days,
+        .label {
+            font-size: 7vw !important;
+        }
+    }
+    .title {
+        h3 {
+            font-weight: 800;
+            font-size: 1.15em;
+        }
+    }
+    .number-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @height: 100px;
+        flex: 1 1 auto;
+        margin: 1em 0em;
+        div {
+            display: flex;
+            align-items: center;
+            padding: 0 0.5em;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .label-wrapper {
+            background: @blue;
+            color: @blueLight;
+            line-height: 1em;
+            min-height: @height;
+            flex: 1 1 20em;
+            .label {
+                font-size: 1em !important;
+                width: 80px;
+            }
+        }
+        .days-wrapper {
+            background: @blueLight;
+            color: white;
+            font-size: 3em;
+            min-height: @height;
+            flex: 1 1 20em;
+            .days {
+                width: 120px;
+            }
+        }
+    }
+    .date {
+        h3 {
+            font-weight: 800;
+            font-size: 1.15em;
+        }
+    }
+}

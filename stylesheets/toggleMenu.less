@@ -1,0 +1,234 @@
+/* Any page that nest within an index which 
+has togglemenu, will get coverted to an id for
+that section. This will target those pages and
+treat them accordingly. 
+
+REFERENCE: toggleMenu in the JS. 
+
+*/
+
+@toggleMaxWidth: 1300px;
+
+body:not(.sqs-edit-mode-active) {
+    #toggle-menu-1 {
+        background: #F5F5F5;
+    }
+    [id*=toggle-menu] {
+        @media screen and (min-width: 768px) {
+            .sqs-block-code {
+                display:none;
+            }
+        }
+        .sqs-block-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            .controls {
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+                align-items: center;
+                div {
+                    cursor: pointer;
+                    i {
+                        color: @blue;
+                    }
+                    &:nth-child(1) {
+                        text-align: left;
+                        margin-left: 1em;
+                    }
+                    &:last-child {
+                        margin-right: 1em;
+                        text-align: right;
+                    }
+
+                    flex:1 1 50%;
+                    line-height:1.4em;
+                }
+            }
+        }
+        .Index-page-content {
+            padding-bottom: 0;
+            padding: 0;
+            margin-bottom: 0.5em;
+            box-shadow: 0 2px 8px rgba(10, 10, 10, 0.1);
+            max-width: 100%;
+        }
+        .sqs-block-html {
+            background: @greyLight; //box-shadow: 0 2px 8px rgba(10, 10, 10, 0.1);
+            padding: 0 !important;
+            width: 100%;
+            margin: 0 auto !important;
+        }
+        ul {
+            max-width: @toggleMaxWidth;
+            margin: 0 auto;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1.2em;
+                @media screen and (max-width: 768px) {
+                    font-size:0.7em;
+                    border: none !important;
+                    flex: 0 0 100%;
+                    &:not(.active) {
+                        display: none;
+                    }
+                    &:after {
+                        content: "";
+                        display: none;
+                    }
+                    &.active {
+                        pointer-events: none;
+                    }
+                    max-width:100%;
+                    padding-top:0px;
+                }
+                flex:0 0 250px;
+                text-align:center;
+                text-transform:uppercase;
+                cursor:pointer;
+                height:60px;
+                border-bottom:2px solid @greyLight;
+                position:relative;
+                @transitionSpeed: 0.25s;
+                transition:border @transitionSpeed ease-in-out;
+                &:after {
+                    opacity: 0;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-left: 12px solid transparent;
+                    border-right: 12px solid transparent;
+                    border-top: 12px solid @blue;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    right: 0;
+                    transform: translate(-50%, 100%);
+                    transition: @transitionSpeed ease-in-out;
+                }
+                &.active {
+                    border-bottom: 2px solid @blue;
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+section {
+    @mobileBreak: 700px;
+    @desktop: 701px;
+    &[id*=togglesection] {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        visibility: hidden;
+        border-bottom: 2px solid @greyLight;
+        transition: opacity 0.5s 0.25s;
+        .Index-page-content {
+            transition: transform 0.6s ease-in-out;
+            max-width: @toggleMaxWidth;
+            margin: 0 auto;
+            @media screen and (max-width: 500px) {
+                padding-top:0em;
+                padding-bottom: 1em;
+                .summary-title a {
+                    font-size: 2em !important;
+                }
+            }
+        }
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            position: static;
+        }
+        .summary-block-header {
+            display: none;
+        }
+        .summary-item-list {
+            display: flex;
+            flex-wrap: wrap;
+            .summary-item {
+                flex: 1 1 200px;
+                position: relative;
+                max-height: 440px;
+                &:hover {
+                    img {
+                        opacity: 0.7;
+                    }
+                }
+                @media screen and (max-width:@mobileBreak) {
+                    flex: 1 1 100%;
+                    max-height: 130px;
+                    display: flex;
+                    flex-direction: column;
+                    img {
+                        max-height: 150px;
+                    }
+                }
+                .summary-thumbnail,
+                .sqs-video-wrapper {
+                    display: flex;
+                    img {
+                        top: 0 !important;
+                        object-fit: cover;
+                        left: 0 !important;
+                        width: 100% !important;
+                        height: 100% !important;
+                    }
+                }
+                .summary-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    bottom: 50%;
+                    right: 50%;
+                    width: 100%;
+                    transform: translate(-50%, -50%);
+                    .summary-title {
+                        color: white;
+                        text-transform: uppercase;
+                        margin: 0;
+                        max-width: 92%;
+                        a {
+                            font-family: din-condensed-web;
+                            font-size: 2vw;
+                            font-weight: 700;
+                            line-height: 1em;
+                            @media screen and (max-width: @mobileBreak) {
+                                font-size:2em;
+                            }
+                        }
+                    }
+                }
+                &.summary-item-record-type-video {
+                    .summary-title {
+                        pointer-events: none;
+                    }
+                    cursor:pointer;
+                    .sqs-video-icon {
+                        display: none;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

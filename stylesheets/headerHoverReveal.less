@@ -1,0 +1,35 @@
+/* When the user hovers over the h1 text in the
+banner, different text appears */
+
+.homepage:not(.sqs-edit-mode-active) {
+    .Index {
+        .Index-page--has-image {
+            .sqs-layout {
+                .sqs-block-html {
+                    &:hover {
+                        h1:nth-child(1) {
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                        h1:nth-child(2) {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+            h1 {
+                margin-bottom: 0;
+                transition: opacity 0.6s;
+            }
+            h1:nth-child(2) {
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+}

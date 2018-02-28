@@ -1,0 +1,76 @@
+/* Donation Page */
+
+#collection-59bc2bb1e3df28ba914113a2 {
+    .loader {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        top: 8vw;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: opacity 0.4s;
+        &.loading {
+            opacity: 1;
+            visibility: visible;
+        }
+        &.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-spinner {
+            height: 100%;
+            width: 100%;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid @green;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+    }
+    #rbEmbedded {
+        position: relative;
+        height: 100%;
+        &.loaded {
+            iframe {
+                opacity: 1;
+            }
+        }
+        iframe {
+            opacity: 0;
+            transition: opacity 0.4s;
+            background: transparent !important;
+        }
+    }
+    .Header {
+        background: none !important;
+    }
+    .Header-nav-inner {
+        display: none;
+    }
+    .Index-page-content {
+        padding-top: 100px;
+    }
+    #block-yui_3_17_2_2_1516825270345_15345 {
+        p {
+            display: flex;
+            flex-wrap: wrap;
+            word-wrap: none !important;
+        }
+        a {
+            background: hsl(351, 80%, 50%);
+            color: hsl(351, 87%, 95%);
+            padding: 1em;
+            margin: 5px;
+            box-shadow: 0 3px hsl(351, 90%, 40%);
+            line-height: 20px;
+            transition: background 0.4s;
+            &:hover {
+                background: hsl(351, 80%, 56%);
+            }
+        }
+    }
+}
